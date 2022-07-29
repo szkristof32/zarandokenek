@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Zarándokének</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="menu">
+				<div class="title">
+					<i class="fas fa-bars" onclick="toggleMenu();" id="menuIcon"></i>
+					<h1>Menü</h1>
+				</div>
+				<ul>
+					<li class="active">
+						<i class="fas fa-home"></i>
+						<a href="#">Kezdőlap</a>
+					</li>
+					<li>
+						<i class="fas fa-align-left"></i>
+						<a href="#">Tartalom</a>
+					</li>
+					<li>
+						<i class="fas fa-link"></i>
+						<a href="#">Linkek</a>
+					</li>
+					<li>
+						<i class="far fa-envelope"></i>
+						<a href="#">Kapcsolat</a>
+					</li>
+					<li class="input">
+						<label for="search"><i class="fas fa-search" onclick="openMenu();"></i></label>
+						<input type="text" id="search" placeholder="Keresés..." onfocus="openMenu();" onkeydown="search(event, this);" autocomplete="off" />
+					</li>
+				</ul>
+			</div>
+			<div class="content">
+				<div class="buttons">
+					<a href="#" class="btn btn1">
+						<i class="fas fa-angle-left"></i>
+					</a>
+					<a href="#" class="btn btn1">
+						<i class="fas fa-angle-right"></i>
+					</a>
+					<!--<a href="#" class="btn btn1">
+						<i class="fas fa-question"></i>
+					</a>-->
+					<a href="javascript:void(0);" class="btn btn2">
+						<input type="number" value="28" min="1" max="175" onkeydown="navigate(event, this);" />
+					</a>
+				</div>
+				<div class="title">
+					<h1>
+						Zarándokének
+					</h1>
+					<h2>Most keljetek fel!</h2>
+				</div>
+				<div class="line" style="float: left;"></div>
+				<div class="tartalom">
+					<a href="res/enek28.pdf" target="_blank" title="Letöltés">PDF letöltése</a><br />
+					<img src="res/enek28.png" alt="Most keljetek fel!" title="Most keljetek fel!" width="520" />
+					<div class="versszak">
+						<p>
+							1. Most keljetek fel még ti csendesek mind<br />
+							és együtt örvendjünk boldogan.<br />
+							Egy újszülött kisgyermek reánk tekint,<br />
+							az égi béke közöttünk van.<br />
+							<i>Refr.:</i> Halleluja Isten nem hagy el,<br />
+							Halleluja Jézust küldte el,<br />
+							Csak ő ad erőt, újulást,<br />
+							Csak ő ad reményt, biztatást.
+						</p>
+						<p>
+							2. Most sietve kardotok dobjátok el,<br />
+							E béke mindig velünk marad.<br />
+							A beteljesült ige itt van közel,<br />
+							Hogy isten végleg kegyelmet ad.<br />
+							<i>Refr.:</i> Halleluja...
+						</p>
+						<p>
+							3. Te halál árnyékában is megtalált nép<br />
+							Most Jézus fénye világít át.<br />
+							Ő begyógyítja a világ minden sebét,<br />
+							Ő irgalmat hoz, vigasztalást.<br />
+							<i>Refr.:</i> Halleluja...
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			const BODY = document.body || document.documentElement;
+			let menuOpen = false;
+			let menu = document.getElementsByClassName("menu")[0];
+			let wrapper = document.getElementsByClassName("wrapper")[0];
+			let menuIcon = document.getElementById("menuIcon");
+
+			function removeTransition(){
+				BODY.classList.remove("no-transition");
+			}
+
+			function toggleMenu(){
+				menuOpen = !menuOpen;
+				menuIcon.classList.toggle("fa-bars");
+				menuIcon.classList.toggle("fa-times");
+				menu.classList.toggle("open");
+				wrapper.classList.toggle("sidepanel-open");
+			}
+
+			function openMenu(){
+				if(!menuOpen){
+					toggleMenu();
+				}
+			}
+
+			function navigate(e, box){
+				if(e.keyCode == 13){
+					var szam = box.value;
+					if(szam < 601 && szam > 0){
+						alert("Ez az ének az Evangélikus Énekeskönyvben található.");
+					} else if(szam > 824 || szam <= 0){
+						alert("Kérlek egy 601 és 824 közé eső számot adj meg.");
+					} else{
+						window.location = "gylk" + szam + ".html";
+					}
+				}
+			}
+
+			function search(e, box){
+				if(e.keyCode == 13 && box.value != ""){
+					setTimeout(function(){
+						box.value = "";
+					}, 5);
+					window.location = "search.php?q=" + box.value;
+				}
+			}
+		</script>
+	</body>
+</html>
