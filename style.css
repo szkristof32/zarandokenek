@@ -197,7 +197,8 @@
   font-size: 13.5pt;
 }
 * body .wrapper .content .versszak p {
-  margin: 10px 0;
+  margin: 10px 25px;
+  text-indent: -20px;
 }
 
 /*# sourceMappingURL=style.css.map */
