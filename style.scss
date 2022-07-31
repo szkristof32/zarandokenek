@@ -1,6 +1,29 @@
-@import url("fonts.css");
-@import url("animations.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+@font-face {
+	font-family: "Book Antiqua";
+	src: url("fonts/BKANT.TTF");
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face {
+	font-family: "Book Antiqua";
+	src: url("fonts/BKANTI.TTF");
+	font-style: italic;
+	font-weight: normal;
+}
+@font-face {
+	font-family: "Book Antiqua";
+	src: url("fonts/BKANTB.TTF");
+	font-style: normal;
+	font-weight: bold;
+}
+@font-face {
+	font-family: "Book Antiqua";
+	src: url("fonts/BKANTBI.TTF");
+	font-style: italic;
+	font-weight: bold;
+}
 
 *{
 	$piros: #7f3131;
@@ -73,6 +96,34 @@
 				ul{
 					list-style-type: none;
 
+					a{
+						text-decoration: none;
+						color: $zold;
+						font-family: "Open Sans";
+
+						li{
+							width: 300px;
+							padding: 20px 0;
+							transition: .3s;
+							display: grid;
+							grid-template-columns: 70px auto;
+							cursor: pointer;	
+							-webkit-tap-highlight-color: transparent;
+							font-family: "Open Sans";
+	
+							i, label{
+								font-size: 15pt;
+								text-align: center;
+								line-height: 22px;
+								z-index: 2;
+								-webkit-tap-highlight-color: transparent;
+								color: black;
+							}
+							&:hover:not(.input), &.active{
+								background-color: $vilagosszurke;
+							}
+						}
+					}
 					li{
 						width: 300px;
 						padding: 20px 0;
@@ -81,6 +132,7 @@
 						grid-template-columns: 70px auto;
 						cursor: pointer;	
 						-webkit-tap-highlight-color: transparent;
+						font-family: "Open Sans";
 
 						i, label{
 							font-size: 15pt;
@@ -91,11 +143,6 @@
 						}
 						&:hover:not(.input), &.active{
 							background-color: $vilagosszurke;
-						}
-						a{
-							text-decoration: none;
-							color: $zold;
-							font-family: "Open Sans";
 						}
 						&.input input{
 							position: absolute;
@@ -145,6 +192,20 @@
 						font-weight: bold;
 						font-size: 16pt;
 						margin-bottom: -15px;
+
+						&::before{
+							content: attr(cim);
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							background: none;
+						}
+					}
+					&.disabled{
+						background-color: desaturate($color: lighten($zold, 20%), $amount: 35%);
+						cursor: not-allowed;
 					}
 					input{
 						position: absolute;
@@ -186,6 +247,10 @@
 				}
 				.tartalom{
 					clear: both;
+
+					img{
+						max-width: 100%;
+					}
 				}
 				.line{
 					display: block;
@@ -212,10 +277,67 @@
 				.versszak{
 					font-size: 13.5pt;
 
-					p{
+					p:not(.no-indent){
 						margin: 10px 25px;
 						text-indent: -20px;
 					}
+					p.no-indent{
+						margin: 10px 5px;
+					}
+				}
+				.himnologia{
+					margin: 12pt 0;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	*{
+		.wrapper{
+			display: block !important;
+
+			.menu{
+				position: fixed;
+				top: 0px !important;
+				left: 100% !important;
+				width: 100% !important;
+				height: 100% !important;
+				overflow: visible !important;
+
+				&.open{
+					left: 50px !important;
+					box-shadow: 0 0 100px black !important;
+				}
+				.title{
+					position: absolute;
+					top: 0px;
+					left: -50px;
+					width: 50px;
+					height: 50px;
+					margin: 0 !important;
+					background-color: white;
+					box-shadow: 0 0 10px #0000005e;
+					z-index: 3;
+					
+					i{
+						width: 50px;
+					}
+					h1{
+						display: none;
+					}
+				}
+				ul{
+					li{
+						width: 100% !important;
+					}
+				}
+			}
+			.content{
+				.buttons, .title{
+					float: none !important;
+					display: block !important;
 				}
 			}
 		}

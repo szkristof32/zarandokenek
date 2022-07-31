@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Zarándokének</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			i:not(.fas){
+				font-style: normal;
+				font-variant: small-caps;
+				font-size: 14pt;
+			}
+			p{
+				margin: 12pt 0;
+				font-size: 13pt;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="menu">
+				<div class="title">
+					<i class="fas fa-bars" onclick="toggleMenu();" id="menuIcon"></i>
+					<h1>Menü</h1>
+				</div>
+				<ul>
+					<a href="#">
+						<li class="active">
+							<i class="fas fa-home"></i>
+							Kezdőlap
+						</li>
+					</a>
+					<a href="tartalom.html">
+						<li>
+							<i class="fas fa-align-left"></i>
+							Tartalom
+						</li>
+					</a>
+					<a href="linkek.html">
+						<li>
+							<i class="fas fa-link"></i>
+							Linkek
+						</li>
+					</a>
+					<a href="kapcsolat.html">
+						<li>
+							<i class="far fa-envelope"></i>
+							Kapcsolat
+						</li>
+					</a>
+					<li class="input">
+						<label for="search"><i class="fas fa-search" onclick="openMenu();"></i></label>
+						<input type="text" id="search" placeholder="Keresés..." onfocus="openMenu();" onkeydown="search(event, this);" autocomplete="off" />
+					</li>
+				</ul>
+			</div>
+			<div class="content">
+				<div class="buttons">
+					<a href="javascript:void(0);" class="btn btn1 disabled">
+						<i class="fas fa-angle-left"></i>
+					</a>
+					<a href="enek1.html" class="btn btn1">
+						<i class="fas fa-angle-right"></i>
+					</a>
+					<!--<a href="#" class="btn btn1">
+						<i class="fas fa-question"></i>
+					</a>-->
+					<a href="javascript:void(0);" class="btn btn2" cim="Előszó">
+						<input type="number" value="" min="1" max="175" onkeydown="navigate(event, this);" />
+					</a>
+				</div>
+				<div class="title">
+					<h1>
+						Zarándokének
+					</h1>
+					<h2>
+						Előszó
+					</h2>
+				</div>
+				<div class="line" style="float: left;"></div>
+				<div class="tartalom">
+					<p>
+						Kedves úton lévő társam!
+					</p>
+					<p>
+						Örömmel és Isten iránti hálával adjuk ketedbe ezt az új ifjúsági énekeskönyvet. Csupa olyan dolgot válogattunk bele, amiről azt gondoljuk, hasznát veheted utad során. Lesznek köztük régóta ismert, kedves énekek, valamint olyanok is, amelyeket sokszor énekeltél már, de eddig még nem jelentek meg evangélikus gyűjteményben. A dalok egy részét most láthatod először nyomtatásban. Ezek az új évezred zarándokénekei, melyeket érdemesnek tartottunk arra, hogy magaddal vidd őket.
+					</p>
+					<p>
+						A válogatást hosszú előkészítő munka előzte meg. 2009 decemberében &#0150; látva, hogy az <i>Új ének</i> utolsó kiadásának példányai is fogytán vannak már &#0150; a Magyar Evangélikus Ifjúsági Szövetség (Mevisz) összehívta egyházunk fiatal és lélekben fiatal könnyűzenészeit, hogy elgondolkodjunk az énekgyűjtemény jövőjén. Mindnyájan egyetértettünk abban, hogy valami újat szeretnénk az ifjúság kezébe adni, amely megőrzi az <i>Új ének</i> értékeit, de fogékony lesz az elmúlt bő tíz év zenei termésére is. Több fórumon felhívást intéztünk a magyar evangélikus gyülekezetekhez, hogy küldjék el nekünk az ifjúságaikban szívesen énekelt, de az <i>Új ének</i>ben nem szereplő énekek kottáit. Megalakult a külső szerkesztőbizottság, amely tanácsadói, felügyelői funkciókat volt hivatott betölteni, valamint a belső bizottság, az &#0132;ötök&#0148;, amelyre a gyűjtő&#0150; és szelektáló munka érdemi része hárult, s amely több mint fél évig végezte a tevékenységét.
+					</p>
+					<p>
+						Az ötök sokszínű társaságot képezett. Volt köztünk fővárosi és kis faluból származó, dunántúli és tiszántúli, ősi evangélikus &#0132;klántag&#0148; és a közelmúltban lutheránussá lett, képzett zenész és hobbigitáros. Üléseinken sokszor vitáztunk egy-egy ének felett, mégis a végeredmény közös megegyezésből jött létre.
+					</p>
+					<p>
+						Gyűjteményünk két fő forrásból merít. Egyrész tartalmazza azokat a népszerű dalokat, melyeket a legtöbb ifjúság lelkesen használ az <i>Új ének</i>ből, másrészt azokat az énekeket, amelyek eddig nem szerepeltek e gyűjteményben, mégis ismertségük és/vagy szépségük miatt fontosnak tartottuk bevenni kiadványunkba. Így kerültek bele jelen gyűjteményünkbe az új, evangélikus, máshol meg nem jelent dalok mellet a dicsőítő énekek kategóriájába tartozó, nálunk is egyre népszerűbb szerzemények, amelyek új színt vihetnek evangélikus lelkiségünkbe. Célunk az volt, hogy megmutassuk neked az emúlt tíz-húsz év, keresztény együttesek által előadott, közösségi éneklésre alkalmas daltermését is. Gyűjteményünk palettáját más kiadványokban már megjelent, nálunk is használatban lévő énekekkel és utazásainkon megismert, friss, külföldi művek fordításaival szélesítettük ki.
+					</p>
+					<p>
+						Az összegyűjtött énekeket éppúgy, mint az <i>Új ének</i>ben fellelhető dalokat szigorú kritéeriumok szerint rostáltuk meg. Szempontjaink között szerepelt a zenei igényesség, a prozódia szabályainak betartása, a közösségi énekelhetőség, valamint, hogy a dalok mondandója megfeleljen evangélikus hitvallásunknak. Aktív zenészek lévén az ötök tagjai gyülekezeti alkalmakon és ifjúsági istentiszteleteken tették próbára a gyakorlatban is hozott énekeink többségét.
+					</p>
+					<p>
+						&#0132;Aki a korszellemmel köt házasságot, hamar megözvegyül&#0148; - tartja a mondás. Úgy gondoljuk, hogy az ifjúsági énekeket nem eszerint kell megítélnünk. E kor gyermekei vagyunk, e kor fiataljainak készítettünk legjobb tudásunk szerint útra valót. Egy évtized múlva majd jönnek új dalok, s ez így lesz rendjén. Megváltónkba vetett hitünket a hozzánk legközelebb álló módon tudjuk hitelesen megvallani. Rockzenével és újraértelmezett korállal, borongós dzsesszel és áradó dicsőítéssel. Igényesen, beleadva szívünket-lelkünket.
+					</p>
+					<p>
+						Fogadd hát nyitottsággal, úton lévő testvérem, évezredünk első évtizedének krisztushívő énekeit! Mélyülj el bennük, töltekezz fel, gyújts erőt belőlük a továbbinduláshoz. Isten vezessen bennünket, mikor ismét útnak indulunk!
+					</p>
+					<p>
+						Mindnyájan vándorok vagyunk.
+					</p>
+					<p>
+						Budapesten, 2010 júliusában
+					</p>
+					<p style="text-align: right;">
+						<i style="font-size: 15pt;">A szerkesztőbizottság</i>
+					</p>
+				</div>
+			</div>
+		</div>
+		<script>
+			const BODY = document.body || document.documentElement;
+			let menuOpen = false;
+			let menu = document.getElementsByClassName("menu")[0];
+			let wrapper = document.getElementsByClassName("wrapper")[0];
+			let menuIcon = document.getElementById("menuIcon");
+
+			function removeTransition(){
+				BODY.classList.remove("no-transition");
+			}
+
+			function toggleMenu(){
+				menuOpen = !menuOpen;
+				menuIcon.classList.toggle("fa-bars");
+				menuIcon.classList.toggle("fa-times");
+				menu.classList.toggle("open");
+				wrapper.classList.toggle("sidepanel-open");
+			}
+
+			function openMenu(){
+				if(!menuOpen){
+					toggleMenu();
+				}
+			}
+
+			function navigate(e, box){
+				if(e.keyCode == 13){
+					var szam = box.value;
+					if(szam < 175 && szam > 0){
+						window.location = "enek" + szam + ".html";
+					} else{
+						alert("Kérlek egy 1 és 175 közé eső számot adj meg.");
+					}
+				} else{
+					setTimeout(() => {
+						var elmnt = box.parentElement;
+						elmnt.setAttribute("cim", box.value.length > 0 ? "" : "Előszó");
+					}, 10);
+				}
+			}
+
+			function search(e, box){
+				if(e.keyCode == 13 && box.value != ""){
+					setTimeout(function(){
+						box.value = "";
+					}, 5);
+					window.location = "search.php?q=" + box.value;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,6 +1,28 @@
-@import url("fonts.css");
-@import url("animations.css");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@font-face {
+  font-family: "Book Antiqua";
+  src: url("fonts/BKANT.TTF");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Book Antiqua";
+  src: url("fonts/BKANTI.TTF");
+  font-style: italic;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Book Antiqua";
+  src: url("fonts/BKANTB.TTF");
+  font-style: normal;
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Book Antiqua";
+  src: url("fonts/BKANTBI.TTF");
+  font-style: italic;
+  font-weight: bold;
+}
 * {
   margin: 0;
   padding: 0;
@@ -64,6 +86,32 @@
 * body .wrapper .menu ul {
   list-style-type: none;
 }
+* body .wrapper .menu ul a {
+  text-decoration: none;
+  color: #1e4b37;
+  font-family: "Open Sans";
+}
+* body .wrapper .menu ul a li {
+  width: 300px;
+  padding: 20px 0;
+  transition: 0.3s;
+  display: grid;
+  grid-template-columns: 70px auto;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans";
+}
+* body .wrapper .menu ul a li i, * body .wrapper .menu ul a li label {
+  font-size: 15pt;
+  text-align: center;
+  line-height: 22px;
+  z-index: 2;
+  -webkit-tap-highlight-color: transparent;
+  color: black;
+}
+* body .wrapper .menu ul a li:hover:not(.input), * body .wrapper .menu ul a li.active {
+  background-color: #e4e4e4;
+}
 * body .wrapper .menu ul li {
   width: 300px;
   padding: 20px 0;
@@ -72,6 +120,7 @@
   grid-template-columns: 70px auto;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  font-family: "Open Sans";
 }
 * body .wrapper .menu ul li i, * body .wrapper .menu ul li label {
   font-size: 15pt;
@@ -82,11 +131,6 @@
 }
 * body .wrapper .menu ul li:hover:not(.input), * body .wrapper .menu ul li.active {
   background-color: #e4e4e4;
-}
-* body .wrapper .menu ul li a {
-  text-decoration: none;
-  color: #1e4b37;
-  font-family: "Open Sans";
 }
 * body .wrapper .menu ul li.input input {
   position: absolute;
@@ -134,6 +178,19 @@
   font-size: 16pt;
   margin-bottom: -15px;
 }
+* body .wrapper .content .btn.btn2::before {
+  content: attr(cim);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: none;
+}
+* body .wrapper .content .btn.disabled {
+  background-color: #5f7068;
+  cursor: not-allowed;
+}
 * body .wrapper .content .btn input {
   position: absolute;
   top: 0;
@@ -173,6 +230,9 @@
 * body .wrapper .content .tartalom {
   clear: both;
 }
+* body .wrapper .content .tartalom img {
+  max-width: 100%;
+}
 * body .wrapper .content .line {
   display: block;
   width: 100%;
@@ -196,9 +256,57 @@
 * body .wrapper .content .versszak {
   font-size: 13.5pt;
 }
-* body .wrapper .content .versszak p {
+* body .wrapper .content .versszak p:not(.no-indent) {
   margin: 10px 25px;
   text-indent: -20px;
+}
+* body .wrapper .content .versszak p.no-indent {
+  margin: 10px 5px;
+}
+* body .wrapper .content .himnologia {
+  margin: 12pt 0;
+}
+
+@media screen and (max-width: 1000px) {
+  * .wrapper {
+    display: block !important;
+  }
+  * .wrapper .menu {
+    position: fixed;
+    top: 0px !important;
+    left: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: visible !important;
+  }
+  * .wrapper .menu.open {
+    left: 50px !important;
+    box-shadow: 0 0 100px black !important;
+  }
+  * .wrapper .menu .title {
+    position: absolute;
+    top: 0px;
+    left: -50px;
+    width: 50px;
+    height: 50px;
+    margin: 0 !important;
+    background-color: white;
+    box-shadow: 0 0 10px #0000005e;
+    z-index: 3;
+  }
+  * .wrapper .menu .title i {
+    width: 50px;
+  }
+  * .wrapper .menu .title h1 {
+    display: none;
+  }
+  * .wrapper .menu ul li {
+    width: 100% !important;
+  }
+  * .wrapper .content .buttons, * .wrapper .content .title {
+    float: none !important;
+    display: block !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
