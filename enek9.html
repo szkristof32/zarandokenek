@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Valaki így kiált | Zarándokének</title>
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="menu">
+				<div class="title">
+					<i class="fas fa-bars" onclick="toggleMenu();" id="menuIcon"></i>
+					<h1>Menü</h1>
+				</div>
+				<ul>
+					<a href="index.html">
+						<li class="active">
+							<i class="fas fa-home"></i>
+							Kezdőlap
+						</li>
+					</a>
+					<a href="tartalom.html">
+						<li>
+							<i class="fas fa-align-left"></i>
+							Tartalom
+						</li>
+					</a>
+					<a href="linkek.html">
+						<li>
+							<i class="fas fa-link"></i>
+							Linkek
+						</li>
+					</a>
+					<a href="kapcsolat.html">
+						<li>
+							<i class="far fa-envelope"></i>
+							Kapcsolat
+						</li>
+					</a>
+					<li class="input">
+						<label for="search"><i class="fas fa-search" onclick="openMenu();"></i></label>
+						<input type="text" id="search" placeholder="Keresés..." onfocus="openMenu();" onkeydown="search(event, this);" autocomplete="off" />
+					</li>
+				</ul>
+			</div>
+			<div class="content">
+				<div class="buttons">
+					<a href="enek8.html" class="btn btn1">
+						<i class="fas fa-angle-left"></i>
+					</a>
+					<a href="enek10.html" class="btn btn1">
+						<i class="fas fa-angle-right"></i>
+					</a>
+					<!--<a href="#" class="btn btn1">
+						<i class="fas fa-question"></i>
+					</a>-->
+					<a href="javascript:void(0);" class="btn btn2">
+						<input type="number" value="9" min="1" max="175" onkeydown="navigate(event, this);" />
+					</a>
+				</div>
+				<div class="title">
+					<h1>
+						Zarándokének
+					</h1>
+					<h2>Valaki így kiált</h2>
+				</div>
+				<div class="line" style="float: left;"></div>
+				<div class="tartalom">
+					<a href="res/enek9.pdf" target="_blank" title="Letöltés">PDF letöltése</a><br />
+					<img src="res/enek9.png" alt="Valaki így kiált" title="Valaki így kiált" width="570" />
+					<div class="versszak">
+						<p style="text-indent: -18px;margin-left: 23px;">
+							1. Valaki így kiált, jöjj, Uram!<br />
+							Valaki így kiált, jöjj, Uram!<br />
+							Valaki így kiált, jöjj, Uram!<br />
+							Ó, jöjj, Uram!<br />
+						</p>
+						<p>
+							2. Valaki imádkozik...
+						</p>
+						<p>
+							3. Valaki énekel...
+						</p>
+						<p>
+							4. Cum ba yah, my Lord...
+						</p>
+					</div>
+					<div class="jegyzet himnologia">
+						Dallam: spirituálé, Szöveg: spirituálé
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+			const BODY = document.body || document.documentElement;
+			let menuOpen = false;
+			let menu = document.getElementsByClassName("menu")[0];
+			let wrapper = document.getElementsByClassName("wrapper")[0];
+			let menuIcon = document.getElementById("menuIcon");
+
+			function removeTransition(){
+				BODY.classList.remove("no-transition");
+			}
+
+			function toggleMenu(){
+				menuOpen = !menuOpen;
+				menuIcon.classList.toggle("fa-bars");
+				menuIcon.classList.toggle("fa-times");
+				menu.classList.toggle("open");
+				wrapper.classList.toggle("sidepanel-open");
+			}
+
+			function openMenu(){
+				if(!menuOpen){
+					toggleMenu();
+				}
+			}
+
+			function navigate(e, box){
+				if(e.keyCode == 13){
+					var szam = box.value;
+					if(szam < 175 && szam > 0){
+						window.location = "enek" + szam + ".html";
+					} else{
+						alert("Kérlek egy 1 és 175 közé eső számot adj meg.");
+					}
+				}
+			}
+
+			function search(e, box){
+				if(e.keyCode == 13 && box.value != ""){
+					setTimeout(function(){
+						box.value = "";
+					}, 5);
+					window.location = "search.php?q=" + box.value;
+				}
+			}
+		</script>
+	</body>
+</html>
